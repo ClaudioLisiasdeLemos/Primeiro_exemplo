@@ -1,0 +1,78 @@
+git init
+git status
+git add arquivo.txt
+git commit -m "Meu primeiro commit"
+git log
+git log -p
+git log --pretty=format "%h - %ar : %s"
+git log --since=2.days
+.gitignore
+touch arquivo.txt
+git reset HEAD arquivo.txt
+git checkout  heach
+git checkout 'master'
+git reset HEAD~1 --soft   
+                    --soft      volta 1 commit   --soft remove dos comites e deixa pronto para serem comitados novamente em verde
+		    --hard      volta o commit e remove arquivos e alterações
+
+
+Vamos imaginar que você possui um arquivo no controle de versão chamado exemplo.php.
+
+Imagine agora que você fez diversas alterações nesse arquivo, porém, por qualquer motivo, você se arrependeu de fazê-las (lembrando que você apenas fez as alterações, mas não as commitou). Para você fazer o conteúdo do arquivo voltar ao estado original, digite:
+
+git checkout -- exemplo.php
+
+Rodando esse comando, todos as alterações realizadas serão perdidas e o arquivo voltará exatamente como estava antes.
+
+Esse recurso é extremamente útil, porém deve ser usado com cuidado.	
+
+
+
+
+touch README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/ClaudioLisiasdeLemos/Primeiro_exemplo.git
+git push -u origin master
+
+
+
+USUARIO: ClaudioLisiasdeLemos
+link da aula para o git http://git-scm.com/book/pt-br/Git-Essencial
+
+comitar com tags:
+gerar tag (versÎáÎ÷Îıo)
+
+git tag 0.1.0
+
+listar tags
+git tag -l
+
+subir todas as tags locais para o github
+git push origin master --tags
+
+
+Muitas vezes vocÎáÎéÎõ simplesmente precisa criar uma tag e depois dar push na mesma no repositÎáÎõÎårio remoto (github por exemplo).
+
+Nesse caso, para que as tags sejam enviadas, utilize o comando:
+
+git push origin master --tags
+
+Agora se vocÎáÎéÎõ quiser remover as tags criadas, utilize os comandos abaixo:
+
+git tag -d 0.1.0  (removendo tag localmente)
+git push origin :refs/tags/0.1.0 (removendo tag no repositÎáÎõÎårio remoto)
+
+
+repositorio local
+
+git init --bare  (dentro da pasta)
+   
+   git remote add local ssh://localhost/Users/.... caminho da pasta onde esta o repositorio
+
+
+   criar o arquivo post-receive dentro de hooks
+   #!/bin/sh
+   GIT_WORK_TREE=/Users/usuario/git..caminho/meusite.com.br git checkout -f
+
